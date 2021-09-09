@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Index</title>
+<meta charset="UTF-8">
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<header>
+
+ <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Lista de Exames</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/cadastrarExame" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Exame</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+	
+	<table class="container">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Data</th>
+				<th>Tipo de Exame</th>
+				<th>Nome do Paciente</th>
+				<th>Obs/Resultado</th>
+				<th>Editar</th>
+				<th>Deletar</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="exame: ${exames}">
+			<td><span th:text="${exame.id}"></span></td>
+			<td><span th:text="${exame.dt_exame}"></span></td>
+			<td><span th:text="${exame.nm_exame}"></span></td>
+			<td><span th:text="${exame.nm_paciente}"></span></td>
+			<td><span th:text="${exame.obs_result}"></span></td>
+			<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#alterarExame').arg(0, exame.id)).build()}"><i class="material-icons left">create</i></a></td>
+			<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarExame').arg(0, exame.id)).build()}"><i class="material-icons left">delete</i></a></td>
+		</tr>
+		</tbody>
+	</table>
+
+	 <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+</html>

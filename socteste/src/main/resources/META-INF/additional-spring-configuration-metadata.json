@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "smespring.datasou.ce.driverClassNa",
+    "type": "java.lang.String",
+    "description": "A description for 'smespring.datasou.ce.driverClassNa'"
+  },
+  {
+    "name": "smespring.datasouce.driverClassNa",
+    "type": "java.lang.String",
+    "description": "A description for 'smespring.datasouce.driverClassNa'"
+  }
+]}
